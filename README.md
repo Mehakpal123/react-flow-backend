@@ -2,7 +2,7 @@
 
 This Project is built with Node Js.
 
-#How to Setup
+# How to Setup
 1. Clone/Download this repository.
 2. Open project root in terminal and run command "npm install".
 3. Once everything is installed, your project should be running on Port 5000.
