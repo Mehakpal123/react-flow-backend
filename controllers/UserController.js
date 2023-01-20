@@ -19,109 +19,169 @@ exports.login = (req, res) => {
 
 exports.get_flow_data = (req, res) => {
 	return res.json({
-		"nodes": [
+		nodes: [
 			{
-				"id": "1",
-				"type": "MobileClient",
-				"data": {
-					"label": "Customer"
+				id: '1',
+				type: 'MobileClient',
+				position: {
+					x: -500,
+					y: 125
 				},
-				"label": "Customer"
+				data: {
+					'label': 'Customer'
+				},
+				label: 'Customer'
 			},
 			{
-				"id": "2",
-				"type": "input",
-				"data": {
-					"label": "Client data layer"
+				id: '2',
+				type: 'input',
+				data: {
+					'label': 'Client data layer'
+				},
+				position: {
+					x: -350,
+					y: 50
+				},
+				style: {
+					width: 150,
+					height: 200,
+					zIndex: -1
 				}
 			},
 			{
-				"id": "2a",
-				"type": "default",
-				"parentNode": "2",
-				"data": {
-					"label": "Greengrass lambda"
+				id: '2a',
+				type: 'LambdaFunction',
+				parentNode: '2',
+				extent: 'parent',
+				target: 'left',
+				targetPosition: 'left',
+				position: {
+					x: 53,
+					y: 35
+				},
+				data: {
+					label: 'Greengrass lambda'
 				}
 			},
 			{
-				"id": "2b",
-				"type": "DB",
-				"parentNode": "2",
-				"data": {
-					"label": "Storage engine"
+				id: '2b',
+				type: 'DB',
+				parentNode: '2',
+				extent: 'parent',
+				position: {
+					x: 53,
+					y: 148
+				},
+				data: {
+					label: 'Storage engine'
 				}
 			},
 			{
-				"id": "3",
-				"type": "AWSCloud",
-				"data": {
-					"label": "AWS cloud"
+				id: '3',
+				type: 'AWSCloud',
+				position: {
+					x: -80,
+					y: 48
+				},
+				data: {
+					label: 'AWS cloud'
+				},
+				style: {
+					border: '1px solid black',
+					borderRadius: '2px',
+					width: 300,
+					height: 200,
+					zIndex: -1,
+					backgroundColor: 'white'
+
+				},
+			},
+			{
+				id: '3a',
+				type: 'APIGateway',
+				parentNode: '3',
+				extent: 'parent',
+				position: {
+					x: 30,
+					y: 40
+				},
+				data: {
+					label: 'API gateway'
 				}
 			},
 			{
-				"id": "3a",
-				"type": "APIGateway",
-				"parentNode": "3",
-				"data": {
-					"label": "API gateway"
+				id: '3b',
+				type: 'EC2',
+				parentNode: '3',
+				extent: 'parent',
+				position: {
+					x: 130,
+					y: 120
+				},
+				data: {
+					label: 'AWS EC2'
 				}
 			},
 			{
-				"id": "3b",
-				"type": "default",
-				"parentNode": "3",
-				"data": {
-					"label": "AWS EC2"
-				}
-			},
-			{
-				"id": "3c",
-				"type": "S3",
-				"parentNode": "3",
-				"data": {
-					"label": "Object storage"
+				id: '3c',
+				type: 'S3',
+				parentNode: '3',
+				extent: 'parent',
+				position: {
+					x: 250,
+					y: 70
+				},
+				data: {
+					label: 'Object storage'
 				}
 			}
 		],
-		"edges": [
+		edges: [
 			{
-				"id": "e1-2a",
-				"source": "1",
-				"target": "2a",
-				"data": {
-					"label": "API call"
+				id: 'e1-2a',
+				source: '1',
+				target: '2a',
+				type: 'straight',
+				data: {
+					label: 'API call'
 				},
 			},
 			{
-				"id": "e2a-2b",
-				"source": "2a",
-				"target": "2b",
-				"data": {
-					"label": "API call"
+				id: 'e2a-2b',
+				source: '2a',
+				target: '2b',
+				type: 'straight',
+				data: {
+					'label': 'Store Data'
 				},
 			},
 			{
-				"id": "e2a-3a",
-				"source": "2a",
-				"target": "3a",
-				"data": {
-					"label": "Call backend"
+				id: 'e2a-3a',
+				source: '2a',
+				sourceHandle: 'right_source_0',
+				target: '3a',
+				type: 'straight',
+				data: {
+					sourcePosition: 'right',
+					label: 'Call backend'
 				},
 			},
 			{
-				"id": "e3a-3b",
-				"source": "3a",
-				"target": "3b",
-				"data": {
-					"label": "Make computation"
+				id: 'e3a-3b',
+				source: '3a',
+				target: '3b',
+				type: 'straight',
+				data: {
+					label: 'Make computation'
 				},
 			},
 			{
-				"id": "3b-3c",
-				"source": "3b",
-				"target": "3c",
-				"data": {
-					"label": "Write to S3"
+				id: '3b-3c',
+				source: '3b',
+				target: '3c',
+				type: 'straight',
+				data: {
+					label: 'Write to S3'
 				},
 			}
 		]
