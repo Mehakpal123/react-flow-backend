@@ -23,42 +23,25 @@ exports.get_flow_data = (req, res) => {
 			{
 				id: '1',
 				type: 'MobileClient',
-				position: {
-					x: -500,
-					y: 125
-				},
 				data: {
 					'label': 'Customer'
 				},
 				label: 'Customer'
 			},
-			{
-				id: '2',
-				type: 'input',
-				data: {
-					'label': 'Client data layer'
-				},
-				position: {
-					x: -350,
-					y: 50
-				},
-				style: {
-					width: 150,
-					height: 200,
-					zIndex: -1
-				}
-			},
+			// {
+			// 	id: '2',
+			// 	type: 'input',
+			// 	data: {
+			// 		'label': 'Client data layer'
+			// 	},
+			// },
 			{
 				id: '2a',
 				type: 'LambdaFunction',
-				parentNode: '2',
+				// parentNode: '2',
 				extent: 'parent',
 				target: 'left',
 				targetPosition: 'left',
-				position: {
-					x: 53,
-					y: 35
-				},
 				data: {
 					label: 'Greengrass lambda'
 				}
@@ -66,45 +49,24 @@ exports.get_flow_data = (req, res) => {
 			{
 				id: '2b',
 				type: 'DB',
-				parentNode: '2',
+				// parentNode: '2',
 				extent: 'parent',
-				position: {
-					x: 53,
-					y: 148
-				},
 				data: {
 					label: 'Storage engine'
 				}
 			},
-			{
-				id: '3',
-				type: 'AWSCloud',
-				position: {
-					x: -80,
-					y: 48
-				},
-				data: {
-					label: 'AWS cloud'
-				},
-				style: {
-					border: '1px solid black',
-					borderRadius: '2px',
-					width: 300,
-					height: 200,
-					zIndex: -1,
-					backgroundColor: 'white'
-
-				},
-			},
+			// {
+			// 	id: '3',
+			// 	type: 'AWSCloud',
+			// 	data: {
+			// 		label: 'AWS cloud'
+			// 	},
+			// },
 			{
 				id: '3a',
 				type: 'APIGateway',
-				parentNode: '3',
+				// parentNode: '3',
 				extent: 'parent',
-				position: {
-					x: 30,
-					y: 40
-				},
 				data: {
 					label: 'API gateway'
 				}
@@ -112,12 +74,8 @@ exports.get_flow_data = (req, res) => {
 			{
 				id: '3b',
 				type: 'EC2',
-				parentNode: '3',
+				// parentNode: '3',
 				extent: 'parent',
-				position: {
-					x: 130,
-					y: 120
-				},
 				data: {
 					label: 'AWS EC2'
 				}
@@ -125,12 +83,8 @@ exports.get_flow_data = (req, res) => {
 			{
 				id: '3c',
 				type: 'S3',
-				parentNode: '3',
+				// parentNode: '3',
 				extent: 'parent',
-				position: {
-					x: 250,
-					y: 70
-				},
 				data: {
 					label: 'Object storage'
 				}
