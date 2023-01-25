@@ -40,8 +40,7 @@ exports.get_flow_data = (req, res) => {
 				type: 'LambdaFunction',
 				// parentNode: '2',
 				extent: 'parent',
-				target: 'left',
-				targetPosition: 'left',
+				target: 'right',
 				data: {
 					label: 'Greengrass lambda'
 				}
@@ -49,6 +48,7 @@ exports.get_flow_data = (req, res) => {
 			{
 				id: '2b',
 				type: 'DB',
+				appearUnder: '2a',
 				// parentNode: '2',
 				extent: 'parent',
 				data: {
