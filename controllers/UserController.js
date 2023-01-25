@@ -24,9 +24,11 @@ exports.get_flow_data = (req, res) => {
 				id: '1',
 				type: 'MobileClient',
 				data: {
-					'label': 'Customer'
+					'label': 'Client',
+					'handles': [
+						{ id: 'right_mobile_client', type: 'source', position: 'right' },
+					]
 				},
-				label: 'Customer'
 			},
 			// {
 			// 	id: '2',
@@ -42,7 +44,12 @@ exports.get_flow_data = (req, res) => {
 				extent: 'parent',
 				target: 'right',
 				data: {
-					label: 'Greengrass lambda'
+					label: 'Greengrass lambda',
+					handles: [
+						{ id: 'top_lambda', type: 'target', position: 'left' },
+						{ id: 'bottom_lambda', type: 'source', position: 'bottom' },
+						{ id: 'right_lambda', type: 'source', position: 'right' },
+					],
 				}
 			},
 			{
@@ -52,7 +59,10 @@ exports.get_flow_data = (req, res) => {
 				// parentNode: '2',
 				extent: 'parent',
 				data: {
-					label: 'Storage engine'
+					label: 'Storage engine',
+					'handles': [
+						{ id: 'top_storage_engine', type: 'target', position: 'top' },
+					]
 				}
 			},
 			// {
@@ -68,7 +78,11 @@ exports.get_flow_data = (req, res) => {
 				// parentNode: '3',
 				extent: 'parent',
 				data: {
-					label: 'API gateway'
+					label: 'API gateway',
+					'handles': [
+						{ id: 'left_api_gateway', type: 'target', position: 'left' },
+						{ id: 'right_api_gateway', type: 'source', position: 'right' },
+					]
 				}
 			},
 			{
@@ -77,7 +91,11 @@ exports.get_flow_data = (req, res) => {
 				// parentNode: '3',
 				extent: 'parent',
 				data: {
-					label: 'AWS EC2'
+					label: 'AWS EC2',
+					'handles': [
+						{ id: 'left_api_gateway', type: 'target', position: 'left' },
+						{ id: 'right_api_gateway', type: 'source', position: 'right' },
+					]
 				}
 			},
 			{
@@ -86,7 +104,10 @@ exports.get_flow_data = (req, res) => {
 				// parentNode: '3',
 				extent: 'parent',
 				data: {
-					label: 'Object storage'
+					label: 'Object storage',
+					'handles': [
+						{ id: 'left_s3', type: 'target', position: 'left' },
+					]
 				}
 			}
 		],
@@ -112,7 +133,7 @@ exports.get_flow_data = (req, res) => {
 			{
 				id: 'e2a-3a',
 				source: '2a',
-				sourceHandle: 'right_source_0',
+				sourceHandle: 'right_lambda',
 				target: '3a',
 				type: 'straight',
 				data: {
