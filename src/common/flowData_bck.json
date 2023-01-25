@@ -1,0 +1,139 @@
+{
+	"nodes": [
+		{
+			"id": "1",
+			"type": "MobileClient",
+			"position": {
+				"x": 100,
+				"y": 40
+			},
+			"data": {
+				"label": "Customer"
+			}
+		},
+		{
+			"id": "2",
+			"type": "input",
+			"position": {
+				"x": 200,
+				"y": 10
+			},
+			"data": {
+				"label": "Client data layer"
+			}
+		},
+		{
+			"id": "2a",
+			"type": "default",
+			"position": {
+				"x": 120,
+				"y": 150
+			},
+			"parentNode": "2",
+			"data": {
+				"label": "Greengrass lambda"
+			}
+		},
+		{
+			"id": "2b",
+			"type": "DB",
+			"position": {
+				"x": 145,
+				"y": 350
+			},
+			"parentNode": "2",
+			"data": {
+				"label": "Storage engine"
+			}
+		},
+		{
+			"id": "3",
+			"type": "AWSCloud",
+			"position": {
+				"x": 550,
+				"y": 0
+			},
+			"data": {
+				"label": "AWS cloud"
+			}
+		},
+		{
+			"id": "3a",
+			"type": "APIGateway",
+			"position": {
+				"x": 100,
+				"y": 200
+			},
+			"parentNode": "3",
+			"data": {
+				"label": "API gateway"
+			}
+		},
+		{
+			"id": "3b",
+			"type": "default",
+			"position": {
+				"x": 300,
+				"y": 300
+			},
+			"parentNode": "3",
+			"data": {
+				"label": "AWS EC2"
+			}
+		},
+		{
+			"id": "3c",
+			"type": "S3",
+			"position": {
+				"x": 555,
+				"y": 400
+			},
+			"parentNode": "3",
+			"data": {
+				"label": "Object storage"
+			}
+		}
+	],
+	"edges": [
+		{
+			"id": "e1-2a",
+			"source": "1",
+			"target": "2a",
+			"data": {
+				"label": "API call"
+			}
+		},
+		{
+			"id": "e2a-2b",
+			"source": "2a",
+			"target": "2b",
+			"data": {
+				"label": "API call"
+			}
+		},
+		{
+			"id": "e2a-3a",
+			"source": "2a",
+			"target": "3a",
+			"data": {
+				"label": "Call backend"
+			}
+		},
+		{
+			"id": "e3a-3b",
+			"source": "3a",
+			"target": "3b",
+			"data": {
+				"label": "Make computation"
+			}
+		},
+		{
+			"id": "3b-3c",
+			"source": "3b",
+			"target": "3c",
+			"data": {
+				"label": "Write to S3"
+			}
+		}
+	]
+}
