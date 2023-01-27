@@ -32,13 +32,20 @@ exports.get_flow_data = (req, res) => {
 					]
 				},
 			},
-			// {
-			// 	id: '2',
-			// 	type: 'input',
-			// 	data: {
-			// 		'label': 'Client data layer'
-			// 	},
-			// },
+			{
+				id: '2',
+				type: 'SimpleNode',
+				appearAbove: '2a',
+				lastNode: { horizontal: '', vertical: '2b' },
+				data: {
+					'label': 'Client data layer'
+				},
+				style: {
+					border: '1px solid black',
+					height: '330px',
+					zIndex: '-1'
+				}
+			},
 			{
 				id: '2a',
 				type: 'LambdaFunction',
@@ -69,20 +76,28 @@ exports.get_flow_data = (req, res) => {
 					]
 				}
 			},
-			// {
-			// 	id: '3',
-			// 	type: 'AWSCloud',
-			// 	data: {
-			// 		label: 'AWS cloud'
-			// 	},
-			// },
+			{
+				id: '3',
+				type: 'AWSCloud',
+				appearAbove: '3a',
+				lastNode: { horizontal: '3c', vertical: '' },
+				data: {
+					label: 'AWS cloud',
+					size: 100,
+				},
+				style: {
+					height: '300px',
+					border: '1px solid black'
+				}
+			},
 			{
 				id: '3a',
 				type: 'APIGateway',
 				// parentNode: '3',
-				extent: 'parent',
+				// extent: 'parent',
 				data: {
 					label: 'API gateway',
+					position: { x: 352, y: 132 },
 					size,
 					'handles': [
 						{ id: 'left_api_gateway', type: 'target', position: 'left' },
@@ -94,7 +109,7 @@ exports.get_flow_data = (req, res) => {
 				id: '3b',
 				type: 'EC2',
 				// parentNode: '3',
-				extent: 'parent',
+				// extent: 'parent',
 				data: {
 					label: 'AWS EC2',
 					size,
@@ -108,7 +123,7 @@ exports.get_flow_data = (req, res) => {
 				id: '3c',
 				type: 'S3',
 				// parentNode: '3',
-				extent: 'parent',
+				// extent: 'parent',
 				data: {
 					label: 'Object storage',
 					size,
