@@ -42,8 +42,8 @@ exports.get_flow_data = (req, res) => {
 				},
 				style: {
 					border: '1px solid black',
-					height: '330px',
-					zIndex: '-1'
+					zIndex: '-1',
+					fontSize: '10px'
 				}
 			},
 			{
@@ -73,6 +73,7 @@ exports.get_flow_data = (req, res) => {
 					size,
 					'handles': [
 						{ id: 'top_storage_engine', type: 'target', position: 'top' },
+						{ id: 'bottom_storage_engine', type: 'source', position: 'bottom' },
 					]
 				}
 			},
@@ -80,13 +81,13 @@ exports.get_flow_data = (req, res) => {
 				id: '3',
 				type: 'AWSCloud',
 				appearAbove: '3a',
-				lastNode: { horizontal: '3c', vertical: '' },
+				lastNode: { horizontal: '3ca', vertical: '' },
 				data: {
 					label: 'AWS cloud',
 					size: 100,
 				},
 				style: {
-					height: '300px',
+					zIndex: -1,
 					border: '1px solid black'
 				}
 			},
@@ -125,13 +126,30 @@ exports.get_flow_data = (req, res) => {
 				// parentNode: '3',
 				// extent: 'parent',
 				data: {
-					label: 'Object storage',
+					label: 'AWS S3',
 					size,
 					'handles': [
 						{ id: 'left_s3', type: 'target', position: 'left' },
+						{ id: 'left_s31', type: 'source', position: 'right' },
 					]
 				}
-			}
+			},
+			{
+				id: '3ca',
+				type: 'S3',
+				// appearUnder: '3c',
+				// parentNode: '3',
+				// extent: 'parent',
+				data: {
+					label: 'AWS S3-1',
+					size,
+					'handles': [
+						{ id: 'left_s3x', type: 'target', position: 'top' },
+						{ id: 'left_s3x', type: 'target', position: 'left' },
+					]
+				}
+			},
+
 		],
 		edges: [
 			{
@@ -180,7 +198,17 @@ exports.get_flow_data = (req, res) => {
 				data: {
 					label: 'Write to S3'
 				},
-			}
+			},
+			{
+				id: '3c-3a',
+				source: '3c',
+				target: '3ca',
+				type: 'straight',
+				data: {
+					label: 'Write to S3'
+				},
+			},
+
 		]
 	});
 };
